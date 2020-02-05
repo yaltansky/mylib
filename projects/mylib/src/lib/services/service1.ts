@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MyLibService {
+export class Mylib1Service {
   constructor() { }
 
-  testMethod(): void {
-    console.log('testMethod called');
+  testMethod(): string {
+    return 'testMethod() called';
   }
 }

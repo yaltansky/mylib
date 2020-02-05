@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { testFunc } from 'mylib';
-import { MyLibService } from 'mylib';
+import { Mylib1Service } from 'mylib';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +10,10 @@ export class AppComponent implements OnInit {
   title = 'ngtest';
 
   constructor(
-    public svc: MyLibService
+    public svc: Mylib1Service
   ) { }
 
   ngOnInit(): void {
-    // testFunc();
-    // testFunc2();
-    this.svc.testMethod();
+    console.log(this.svc.testMethod() + ' from app');
   }
 }

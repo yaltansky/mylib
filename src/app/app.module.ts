@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyLibServicesModule } from 'mylib';
-// import { MyLibModule } from 'mylib';
+import { MylibModule } from 'mylib';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,7 @@ import { MyLibServicesModule } from 'mylib';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MyLibServicesModule.forRoot()
+    MylibModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

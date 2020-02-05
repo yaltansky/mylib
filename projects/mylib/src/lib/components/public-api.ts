@@ -2,6 +2,6 @@
  * Public API Surface of mylib/components
  */
 
-export * from './mylib.component';
-export * from './mylib.component.testFunc';
-export * from './mylib.component.module';
+export * from './component1';
+export * from './component2';
+export * from './component.module';

@@ -1,16 +1,17 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { MyLibComponentsModule } from './components';
+import { MylibComponentsModule } from './components/index';
+import { Mylib1Service } from './services/index';
 
 @NgModule({
   declarations: [],
-  imports: [MyLibComponentsModule],
-  exports: [MyLibComponentsModule]
+  imports: [MylibComponentsModule],
+  exports: [MylibComponentsModule]
 })
-export class MyLibModule {
+export class MylibModule {
   public static forRoot(): ModuleWithProviders {
     return {
-      ngModule: MyLibModule,
-      providers: []
+      ngModule: MylibModule,
+      providers: [Mylib1Service]
     };
   }
 }

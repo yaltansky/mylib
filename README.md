@@ -1,27 +1,29 @@
-# Ngtest
+# Тестирование использования библиотеки
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+## Проблемы на текущий момент
 
-## Development server
+## Проблема 1. Не получается выделить chunk components. Чтобы это сделать, надо переименовать файл package.json~ в package.json (в папке /lib/components). После этого команда npm run build:lib выдаёт сообщение:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ERROR: error TS6059: File 'C:/Projects/mylib/projects/mylib/src/lib/core/index.ts' is not under 'rootDir' 'C:\Projects\mylib\projects\mylib\src\lib\components'. 'rootDir' is expected to contain all source files.
+error TS6059: File 'C:/Projects/mylib/projects/mylib/src/lib/core/utilis.ts' is not under 'rootDir' 'C:\Projects\mylib\projects\mylib\src\lib\components'. 'rootDir' is expected to contain all source files.
+error TS6059: File 'C:/Projects/mylib/projects/mylib/src/lib/services/index.ts' is not under 'rootDir' 'C:\Projects\mylib\projects\mylib\src\lib\components'. 'rootDir' is expected to contain all source files.
+error TS6059: File 'C:/Projects/mylib/projects/mylib/src/lib/services/public-api.ts' is not under 'rootDir' 'C:\Projects\mylib\projects\mylib\src\lib\components'. 'rootDir' is expected to contain all source files.
+error TS6059: File 'C:/Projects/mylib/projects/mylib/src/lib/services/service1.ts' is not under 'rootDir' 'C:\Projects\mylib\projects\mylib\src\lib\components'. 'rootDir' is expected to contain all source files.
 
-## Code scaffolding
+## Проблема 2. Не получается "красиво" адресоваться к элементам библиотеки из разных компонент:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Сейчас:
+import { coreFunc1 } from '../core/index';
 
-## Build
+Хотелось бы:
+import { coreFunc1 } from '@mylib/core';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Проблема 3. Не получается адресоваться к элементам библиотеки из приложения:
 
-## Running unit tests
+Сейчас:
+import { Mylib1Service } from 'mylib';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Хотелось бы:
+import { Mylib1Service } from 'mylib/services';
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Обращаю внимание, что библиотека сейчас поддерживает AOT (npm run build -- --prod).
